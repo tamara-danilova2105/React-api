@@ -1,0 +1,50 @@
+ДЗ с авокадо и томатом + нью-йорк и париж
+
+import { Component } from 'react';
+import './App.css';
+import Avocado from './Avocado';
+import Nyc from './Nyc';
+import Paris from './Paris';
+import Tomato from './Tomato';
+
+class App extends Component {
+  state = {
+    show: true,
+    city: true
+  }
+
+  render() {
+    const btnText = this.state.show ? "АВОКАДО" : "ТОМАТ"
+    const bthCity = this.state.city ? "Нью-Йорк" : "Париж"
+    return (
+      <div className="App">
+
+        <div>
+          <p>{this.state.show ? <Avocado/> : <Tomato/>}</p>
+          <button onClick={() => {this.setState({show: !this.state.show})}}>{btnText}</button>
+        </div>
+
+        <div>
+          <p>{this.state.city ?  <Paris/> : <Nyc/>}</p>
+          <button onClick={() => {this.setState({city: !this.state.city})}}>{bthCity}</button>
+        </div>
+
+      </div>
+    );
+  }
+}
+
+export default App;
+
+
+
+пример самого компонента, где было фото
+import paris from './paris.jpeg'
+
+function Paris() {
+    return(
+        <img src={paris} width='500px' alt='paris' />
+    )
+}
+
+export default Paris
